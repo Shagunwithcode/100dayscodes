@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int main() {
+    int terms, t1 = 0, t2 = 1, nextTerm;
+
+    printf("Enter the number of terms: ");
+    scanf("%d", &terms);
+
+    printf("Fibonacci Series: ");
+
+    for (int i = 1; i <= terms; ++i) {
+        printf("%d, ", t1);
+        nextTerm = t1 + t2; // Calculate the next number in sequence
+        t1 = t2;            // Update old term to the current term
+        t2 = nextTerm;      // Update current term to the next calculation
+    }
+    printf("\n");
+
+    return 0;#include <stdio.h>
+
+int main() {
+    int terms, t1 = 0, t2 = 1, nextTerm;
+
+    printf("Enter the number of terms: ");
+    scanf("%d", &terms);
+
+    printf("Fibonacci Series: ");
+
+    for (int i = 1; i <= terms; ++i) {
+        printf("%d, ", t1);
+        nextTerm = t1 + t2; // Calculate the next number in sequence
+        t1 = t2;            // Update old term to the current term
+        t2 = nextTerm;      // Update current term to the next calculation
+    }
+    printf("\n");
+
+    return 0;#include <stdio.h>
+
+int main() {
+    int terms, t1 = 0, t2 = 1, nextTerm;
+
+    printf("Enter the number of terms: ");
+    scanf("%d", &terms);
+
+    printf("Fibonacci Series: ");
+
+    for (int i = 1; i <= terms; ++i) {
+        printf("%d, ", t1);
+        nextTerm = t1 + t2; // Calculate the next number in sequence
+        t1 = t2;            // Update old term to the current term
+        t2 = nextTerm;      // Update current term to the next calculation
+    }
+    printf("\n");
+
+    return 0;
