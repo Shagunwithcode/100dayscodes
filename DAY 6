@@ -1,0 +1,13 @@
+****// SWAP TWO NUMBER USING A THIRD VARIABLE //**
+
+#include<stdio.h>
+int main() {
+ int a , b , temp;
+scanf("%d %d " , &a , &b );
+a = b ;
+b = temp;
+
+printf(" After swap : %d %d" , a , b );
+
+return 0; 
+} 
