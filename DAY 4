@@ -1,0 +1,20 @@
+//  TO CALCUATE AREA OF CIRCLE AND CIRCUMFERENCE OF A CIRCLE //
+
+#include<stdio.h>
+ int main () {
+double r, area , circumference ;
+double pi = 3.145678;
+
+scanf(" %lf" , &r );
+
+area = pi * r * r ;
+circumference = 2 * pi * r ;
+
+printf(" area of circle %d ", area );
+
+printf(" circumference of circle %d " , circumference );
+
+return 0; 
+}
+
+
