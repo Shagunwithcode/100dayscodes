@@ -1,0 +1,15 @@
+\\ TO COVERT CELSIUS OF TO FAHRENHEIT \\
+
+#include<stdio.h>
+int main() {
+
+float c , f; 
+scanf("%f , &c );
+
+f = ( c * 9.0 / 5.0 ) + 32;
+
+printf(" fahrenheit = %g " , f );
+
+return 0 ;
+
+}
