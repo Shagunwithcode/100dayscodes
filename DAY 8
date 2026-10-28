@@ -1,0 +1,11 @@
+// FIND THE SUM OF FIRST N NATURAL NUMBER //
+
+#include<stdio.h>
+int main() {
+
+scanf("%d" , &n );
+sum = n * (n + 1) / 2;
+printf("sum = %d" , sum );
+
+return 0;
+  }
