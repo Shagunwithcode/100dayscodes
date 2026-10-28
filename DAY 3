@@ -1,0 +1,17 @@
+// AREA OF CALCULATE AREA AND PERIMENTER OF A RECTANGLE // 
+
+include<stdio.h>
+int main () { 
+ int l , b , area , perimeter ;
+
+scanf(" %d %d " , &l , &b );
+
+area = l * b ;
+perimeter = 2 * ( l + b) ;
+
+printf(" area = %d " , area );
+printf(" perimeter = %d " , rectangle );
+
+return 0;
+
+}
