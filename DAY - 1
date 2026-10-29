@@ -4,11 +4,11 @@
   int main(){
   int a , b ; 
 
-  scanf( " %d %d " ,&a ,&b);
+  scanf(" %d %d " , &a , &b);
 
-  printf("sum = %d " , a + b ) ;
-  printf( " diff = %d " a - b ) ;
-  printf( " product = %d " , a * b );
-  printf(" quotient = %d " , a / b );
+  printf("sum = %d\n " , a + b ) ;
+  printf( " diff = %d\n " a - b ) ;
+  printf( " product = %d\n " , a * b );
+  printf(" quotient = %d\n " , a / b );
 
   return 0 ;
