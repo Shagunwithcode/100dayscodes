@@ -1,0 +1,23 @@
+// UPPERCASE , LOWERCASE , DIGIT OR SPECIAL CHARACTER //
+
+#include<stdio.h>
+int main() {
+char ch ;
+scanf("%c" , &ch);
+
+if (ch >= 'a' && ch <= 'z' ) {
+  prinntf("lowercase alphabet" );
+}
+else {
+if ( ch >= 'A' && 'Z' ) {
+  printf("uppercase alphabet );
+}
+else {
+printf(" ch >= '0' && ch <= '9' ) {
+printf("digits");
+}
+else {
+printf("special character" );
+}
+return 0;
+}
