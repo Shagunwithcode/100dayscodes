@@ -1,0 +1,19 @@
+// CALCULATING THE FACTORIAL OF A NUMBER
+
+#include<stdio.h>
+int main(){
+int n;
+
+long long fact = 1;
+scanf("%d" , &n);
+if(n < 0) {
+printf("fact is not defined for negative number .\n"); }
+else{
+for(int i = 1 ; i <= n; i++) {
+fact *= i;
+}
+
+printf("%lld" , fact);
+}
+return 0;
+}
