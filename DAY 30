@@ -1,0 +1,37 @@
+// TO  CHECK IF A NUMBER IS AN ARMSTRONG NUMBER //
+
+#include<stdio.h>
+int main() {
+int n , original , remainder; 
+int nDigits = 0;
+long long sum = 0;
+scanf("%d" , &n);
+original = n;
+iny temp = n;
+while ( temp > 0 ) {
+nDigits++;
+temp /= 10;
+}
+if( n == 0 ) {
+sum = 0;
+}
+else {
+temp = n;
+while ( temp > 0 ) {
+remainder = temp % 10;
+long long power = 1;
+power *= remainder;
+}
+sum += power;
+
+temp /= 10;
+}
+}
+if( sum == original ){
+printf("Armstrong\n");
+}
+else {
+printf("Not Armstrong\n");
+}
+return 0;
+}
