@@ -1,0 +1,33 @@
+// TO SWAP THE FIRST AND LAST DIGIT OF A GIVEN NUMBER , COVERING ALL SAMPLE TEST CASESES:
+
+
+#include<stdio.h>
+include<math.h>
+
+int main() {
+long long num;
+
+scanf("lld" , &num);
+
+if( num >= 0 && num <= 9) {
+printf("%lld\n", num);
+return 0;
+}
+
+long long last digit = num % 10;
+long long temp = num;
+long long divisor = 1;
+while ( temp >= 10) {
+divisor *= 10;
+temp /= 10;
+}
+
+long long first digit = temp;
+long long middle = num % divisor ;
+middle /= 10;
+long long swapped num = ( last digit * divisor ) + ( middle * 10 ) + first digit;
+
+printf("%lld\n, swapped num);
+return 0;
+}
+
