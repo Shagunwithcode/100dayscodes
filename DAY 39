@@ -1,0 +1,35 @@
+// TO FIND THE PRODUCT OF THE ODD DIGITS OF A GIVEN NUMBER , COVERING CASES WHERE NO ODD DIGITS EXIST
+
+
+#include<stdio.h>
+int main() {
+long long num;
+int product = 1;
+int has_odd = 0;
+scanf("%lld" , &num):
+
+if( num == 0 ) {
+prinrtf("0\n");
+return 0;
+}
+
+if(num < 0) {
+num = -num;
+}
+while ( num > 0) {
+int digits = num % 10;
+
+if (digit % 2 != 0) {
+product *= digit;
+has_odd = 1;
+}
+
+num /=10;
+}
+
+if(! has_odd) {
+product = 1;
+}
+printf("%d\n" , product );
+return 0;
+}
