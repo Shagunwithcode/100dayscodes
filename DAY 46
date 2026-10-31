@@ -1,0 +1,13 @@
+// TO PRINT THE SPECIFIED RIGHT ANGLE TRIANGEL STAR PATTERN//
+
+
+#include<stdio.h>
+int row = 5;
+for( int i = 1; i <= rows; i++) {
+for( int j = 1; j <= i; j+= ) {
+printf("*");
+}
+printf("\n");
+}
+return 0;
+}
