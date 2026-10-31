@@ -1,0 +1,23 @@
+// TO CALCULATE THE PROFIT OR LOSS PERCENTAGE GIVEN THE COST PRICE AND SELLING PRICE , DESIGNED TO HANDLE ALL YOUR SAMPLE TEAT CAASES:
+
+#include<stdio.h>
+int main(){
+double cp, sp ;
+
+scanf("%lf %lf" , &cp , &sp);
+
+if(sp > cp) {
+double profit = sp - cp ;
+double profit percentage = ( loss / cp) * 100;
+
+printf(" Profit %.0f%%\n", profit percentage);
+}
+else if ( cp > sp ){
+double loss = cp - sp ;
+double loss percentage = ( loss / cp ) * 100;
+printf(" Loss %.0f%%\n" , loss percentage );
+}
+else {
+printf(" No profit No loss\n");
+} 
+return 0; }
