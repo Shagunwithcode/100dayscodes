@@ -1,0 +1,26 @@
+// TO PRINT ALL PRIME NUMBER FORM 1 TO N //
+
+
+
+#include<stdio.h>
+int main() {
+printf("Enter a postive integer n : );
+scanf("%d" , &n);
+
+printf("Prime number from 1 to %d are : \n");
+for( int i = 2; i <= n; i++) {
+int isprime = 1;
+for(int j = 2; j <= i / 2; j++) {
+if ( i % j == 0) {
+isprime = 0;
+}
+}
+
+if(isprime){
+printf("%d", i);
+} 
+}
+
+printf("\n");
+return 0;
+}
