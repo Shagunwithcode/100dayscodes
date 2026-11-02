@@ -1,0 +1,39 @@
+//  REVERSE AN ARRAY WITHOUT TAKING EXTRA SPACE //
+
+
+#  include<stdio.h>
+int main() {
+int n;
+
+if(scanf("%d" , &n) != 1 || n <= 0) {
+
+return 0;
+}
+
+int arr[n];
+
+for( int i = 0; i < n ; i++) {
+scanf("%d" , &arr[i]);
+}
+
+int start = 0;
+inr end = 1;
+
+while(star , end ) {
+
+int temp = arr[star];
+arr[satr] = arr[end];
+arr[end] = temp;
+
+start++;
+end--;
+}
+
+for(int i = 0, i < n; i++ ) {
+printf(" " );
+}
+}
+printf("\n");
+
+return 0;
+}
