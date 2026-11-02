@@ -1,0 +1,22 @@
+// PRINT ELEMENT OF A ONE DIMENSIONAL ARRAY //
+
+
+#include<stdio.h>
+int main() {
+int n;
+if ( scanf("%d", &n) != 1) {
+}
+int aar[n];
+for(int i = 0; i < n; i++) {
+scanf("%d", &arr[i];
+}
+
+for(int i = 0; i < n; i++) {
+printf("%d" , arr[i]);
+if( i < n - 1) {
+printf(" " );
+}
+}
+printf("\n");
+return 0;
+}
