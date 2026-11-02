@@ -1,0 +1,32 @@
+//  TO FIND THE MAXIMUM AND MINIMUM ELEMENT ELEMENT IN A ARRAY //
+
+
+
+#include<stdio.h>
+int main() {
+int n;
+
+for(scanf("%d", &n) != 1 || n <= 0) {
+}
+int arr[n];
+
+for(int i = 0 ; i < n ; i++){
+sacnf("%d" , &arr[i]);
+}
+
+int max = arr[0];
+int min = arr[0];
+
+for(int i = 1; i < n ; i++) {
+if( arr[i] > max) {
+ max = arr[i];
+}
+
+if (arr[i] < min) {
+min = arr[i];
+}
+}
+
+printf("Max = %d, Min = %d\n" , max, min);
+return 0;
+}
