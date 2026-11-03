@@ -1,0 +1,36 @@
+// FIND THE DIGIT THAT OCCURS THE MOST TIMES IN AN INTEGER NUMBER 
+
+
+#include<stdio.h>
+int main() {
+int freq[10] = {0};
+
+printf("Enter an integer number : ");
+if(scanf("%lld", &num) != 1 ) {
+return 1;
+}
+
+if(num == 0) {
+freq[0]++;
+}
+
+while(num > 0) {
+int digit = num % 10;
+freq[digit]++;
+num /= 10;
+}
+
+int maxFreq = -1;
+int mostFrequentDigit = -1;
+
+for(int i = 0; i < 10; i++) {
+if (freq[i] > maxFreq) {
+
+maxFreq = freq[i];
+mostFrequentDigit = i;
+}
+}
+printf("Output : %d\n", mostFrequentDigit);
+return 0;
+}
+int 
