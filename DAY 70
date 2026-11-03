@@ -1,0 +1,55 @@
+// ROTATE AN ARRAY TO RIGHT BY K POSITIONS//
+
+
+#include<stdio.h>
+void reverse(int arr[]; int start , int end) {
+while(start < end ) {
+int temp = arr[start];
+arr[end] = temp;
+start++;
+end--;
+}
+}
+void rightright(int arr[], int n, int k,) {
+if( n <= 0) return;
+k = k % n;
+if(k == 0 ) return;
+
+reverse(arr, 0, n - 1);
+reverse(arr, k , k - 1);
+reverse(arr, k , n - 1);
+}
+int main() {
+    int n;
+    
+    // Read the size of the array
+    if (scanf("%d", &n) != 1) {
+        return 1;
+    }
+    
+    int arr[n];
+    
+    // Read the array elements
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    
+    int k;
+    // Read the number of positions to rotate
+    if (scanf("%d", &k) != 1) {
+        return 1;
+    }
+
+rotateRight(arr, n, k);
+    
+    // Print the rotated array
+    for (int i = 0; i < n; i++) {
+        printf("%d", arr[i]);
+        if (i < n - 1) {
+            printf(" ");
+        }
+    }
+    printf("\n");
+    
+    return 0;
+}
