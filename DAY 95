@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char date[15];
+    
+    // Read the input date string in dd/04/yyyy format
+    if (scanf("%s", date) != 1) {
+        return 0;
+    }
+    
+    // Extract the day (first two characters)
+    char day[3];
+    day[0] = date[0];
+    day[1] = date[1];
+    day[2] = '\0';
+    
+    // Extract the year (last four characters)
+    char year[5];
+    year[0] = date[6];
+    year[1] = date[7];
+    year[2] = date[8];
+    year[3] = date[9];
+    year[4] = '\0';
+    
+    // Print the formatted date with "Apr" as the month
+    printf("%s-Apr-%s\n", day, year);
+    
+    return 0;
+}
