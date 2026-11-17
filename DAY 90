@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[1000];
+    
+    // Read the input sentence including spaces
+    if (scanf("%[^\n]", str) != 1) {
+        return 0;
+    }
+    
+    int maxLen = 0;
+    int currentLen = 0;
+    
+    int startIndex = 0;
+    int maxStartIndex = 0;
+    
+    int i = 0;
+    while (1) {
+        // If we hit a space or the end of the string, it marks the end of a word
+        if (str[i] == ' ' || str[i] == '\0') {
+            if (currentLen > maxLen) {
+                maxLen = currentLen;
+                maxStartIndex = startIndex;
+            }
+            
+            // Reset for the next word
+            currentLen = 0;
+            startIndex = i + 1;
+        } else {
+            currentLen++;
+        }
+        
+        if (str[i] == '\0') {
+            break;
+        }
+        i++;
+    }
+    
+    // Print the longest word using its starting index and maximum length
+    for (int j = maxStartIndex; j < maxStartIndex + maxLen; j++) {
+        printf("%c", str[j]);
+    }
+    printf("\n");
+    
+    return 0;
+}
