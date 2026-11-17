@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100];
+    
+    // Read the input string
+    if (scanf("%s", str) != 1) {
+        return 0;
+    }
+    
+    int len = strlen(str);
+    int first = 1; // Used to handle comma separation properly
+    
+    // Outer loop picks the starting point of the substring
+    for (int i = 0; i < len; i++) {
+        // Inner loop picks the ending point of the substring
+        for (int j = i; j < len; j++) {
+            
+            // Print a comma before the substring (except for the very first one)
+            if (!first) {
+                printf(",");
+            }
+            first = 0;
+            
+            // Print characters from index i to j
+            for (int k = i; k <= j; k++) {
+                printf("%c", str[k]);
+            }
+        }
+    }
+    
+    printf("\n");
+    
+    return 0;
+}
