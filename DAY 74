@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+int main() {
+    int rows, cols;
+    
+    // Read dimensions of the matrix
+    if (scanf("%d %d", &rows, &cols) != 2) return 0;
+    
+    int matrix[rows][cols];
+    
+    // Read the matrix elements
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    
+    bool isDistinct = true;
+    
+    // Check for duplicate elements along the main diagonal (where row index == column index)
+    // We compare each diagonal element with all previous diagonal elements
+    for (int i = 0; i < rows && i < cols; i++) {
+        for (int j = 0; j < i; j++) {
+            if (matrix[i][i] == matrix[j][j]) {
+                isDistinct = false;
+                break;
+            }
+        }
+        if (!isDistinct) {
+            break;
+        }
+    }
+    
+    // Print Output according to the requirement
+    if (isDistinct) {
+        printf("True\n");
+    } else {
+        printf("False\n");
+    }
+    
+    return 0;
+}
