@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    char str[1000];
+    char target;
+    
+    // Read the input string
+    if (scanf("%[^\n]", str) != 1) {
+        return 0;
+    }
+    
+    // Read the target character to search for (using space before %c to consume any leftover newline)
+    scanf(" %c", &target);
+    
+    int count = 0;
+    int i = 0;
+    
+    // Iterate through the string until the null-terminating character '\0'
+    while (str[i] != '\0') {
+        if (str[i] == target) {
+            count++;
+        }
+        i++;
+    }
+    
+    // Print the frequency count
+    printf("%d\n", count);
+    
+    return 0;
+}
