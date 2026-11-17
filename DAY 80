@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    char str[1000];
+    
+    // Read the input string including spaces if any
+    if (scanf("%[^\n]", str) != 1) {
+        return 0;
+    }
+    
+    int i = 0;
+    while (str[i] != '\0') {
+        // Check if the character is a lowercase letter ('a' through 'z')
+        if (str[i] >= 'a' && str[i] <= 'z') {
+            // Convert to uppercase by subtracting 32 from its ASCII value
+            str[i] = str[i] - 32;
+        }
+        i++;
+    }
+    
+    // Print the converted uppercase string
+    printf("%s\n", str);
+    
+    return 0;
+}
