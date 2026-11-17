@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+// Function to find the first occurrence of the target
+int findFirst(int nums[], int n, int target) {
+    int low = 0, high = n - 1, first = -1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (nums[mid] == target) {
+            first = mid;
+            high = mid - 1; // Search on the left side for the first occurrence
+        } else if (nums[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return first;
+}
+
+// Function to find the last occurrence of the target
+int findLast(int nums[], int n, int target) {
+    int low = 0, high = n - 1, last = -1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (nums[mid] == target) {
+            last = mid;
+            low = mid + 1; // Search on the right side for the last occurrence
+        } else if (nums[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return last;
+}
+
+int main() {
+    int n, target;
+    
+    // Read the size of the array
+    if (scanf("%d", &n) != 1) return 0;
+    
+    int nums[n];
+    // Read the elements of the sorted array
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &nums[i]);
+    }
+    
+    // Read the target value
+    scanf("%d", &target);
+    
+    int firstIndex = findFirst(nums, n, target);
+    int lastIndex = findLast(nums, n, target);
+    
+    // Print the result in the requested format
+    printf("%d,%d\n", firstIndex, lastIndex);
+    
+    return 0;
+}
