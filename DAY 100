@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int n;
+    
+    // Read the positive integer n
+    if (scanf("%d", &n) != 1) return 0;
+    
+    // Total sum from 1 to n is given by the formula: n * (n + 1) / 2
+    int totalSum = n * (n + 1
