@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str[1000];
+    
+    // Read the input string including spaces if any
+    if (scanf("%[^\n]", str) != 1) {
+        return 0;
+    }
+    
+    int i = 0, j = 0;
+    
+    // Iterate through the string
+    while (str[i] != '\0') {
+        char ch = tolower(str[i]);
+        
+        // Check if the character is NOT a vowel
+        if (!(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')) {
+            str[j] = str[i]; // Keep non-vowel characters
+            j++;
+        }
+        i++;
+    }
+    
+    // Null-terminate the modified string
+    str[j] = '\0';
+    
+    // Print the result
+    printf("%s\n", str);
+    
+    return 0;
+}
