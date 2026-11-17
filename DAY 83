@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    char str[1000];
+    
+    // Read the input string including spaces if any
+    if (scanf("%[^\n]", str) != 1) {
+        printf("Spaces=0, Digits=0, Special=0\n");
+        return 0;
+    }
+    
+    int spaces = 0;
+    int digits = 0;
+    int special = 0;
+    
+    int i = 0;
+    while (str[i] != '\0') {
+        char ch = str[i];
+        
+        // Check if the character is a space
+        if (ch == ' ') {
+            spaces++;
+        }
+        // Check if the character is a digit ('0' through '9')
+        else if (ch >= '0' && ch <= '9') {
+            digits++;
+        }
+        // Check if the character is neither a letter nor a digit nor a space (i.e., a special character)
+        else if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))) {
+            special++;
+        }
+        
+        i++;
+    }
+    
+    // Print Output matching the format requirement
+    printf("Spaces=%d, Digits=%d, Special=%d\n", spaces, digits, special);
+    
+    return 0;
+}
