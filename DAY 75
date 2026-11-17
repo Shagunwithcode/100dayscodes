@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main() {
+    int rows, cols;
+    
+    // Read dimensions of the matrix
+    if (scanf("%d %d", &rows, &cols) != 2) return 0;
+    
+    int matrix[rows][cols];
+    
+    // Read the matrix elements
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    
+    // Perform diagonal traversal
+    // The total number of diagonals in an r x c matrix is (r + c - 1)
+    for (int d = 0; d < rows + cols - 1; d++) {
+        if (d % 2 == 0) {
+            // For even diagonals, traverse upwards (from bottom-left to top-right)
+            int row = (d < cols) ? 0 : d - cols + 1;
+            int col = (d < cols) ? d : cols - 1;
+            
+            while (row < rows && col >= 0) {
+                printf("%d ", matrix[row][col]);
+                row++;
+                col--;
+            }
+        } else {
+            // For odd diagonals, traverse downwards (from top-right to bottom-left)
+            int row = (d < rows) ? d : rows - 1;
+            int col = (d < rows) ? 0 : d - rows + 1;
+            
+            while (row >= 0 && col < cols) {
+                printf("%d ", matrix[row][col]);
+                row--;
+                col++;
+            }
+        }
+    }
+    printf("\n");
+    
+    return 0;
+}
