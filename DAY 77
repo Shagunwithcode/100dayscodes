@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    // Allocate a buffer large enough to hold the input string
+    char str[1000];
+    
+    // Read the string including spaces or newlines if necessary.
+    // Using %[^
+] ensures we capture spaces correctly up to the newline.
+    if (scanf("%[^\n]", str) != 1) {
+        // If input is empty or just a newline
+        printf("0\n");
+        return 0;
+    }
+    
+    int count = 0;
+    
+    // Traverse the string until the null-terminating character '\0' is reached
+    while (str[count] != '\0') {
+        count++;
+    }
+    
+    // Print the character count
+    printf("%d\n", count);
+    
+    return 0;
+}
