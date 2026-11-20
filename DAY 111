@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int main() {
+    int n, k;
+
+    printf("Enter number of elements: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        return 0;
+    }
+
+    int arr[n];
+    printf("Enter %d elements: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter window size k: ");
+    if (scanf("%d", &k) != 1 || k <= 0 || k > n) {
+        return 0;
+    }
+
+    // Queue to store indices of negative numbers in current window
+    int negQueue[n];
+    int front = 0, rear = 0;
+
+    for (int i = 0; i < n; i++) {
+        // Record index if current element is negative
+        if (arr[i] < 0) {
+            negQueue[rear++] = i;
+        }
+
+        // Once the first window of size k is reached
+        if (i >= k - 1) {
+            // Remove indices that are outside the window [i - k + 1, i]
+            while (front < rear && negQueue[front] <= i - k) {
+                front++;
+            }
+
+            // Print first negative in window or 0 if none exists
+            if (front < rear) {
+                printf("%d", arr[negQueue[front]]);
+            } else {
+                printf("0");
+            }
+
+            if (i < n - 1) {
+                printf(" ");
+            }
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
