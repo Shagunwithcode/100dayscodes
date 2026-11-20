@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    
+    // Input array size
+    printf("Enter the number of elements: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        return 0;
+    }
+
+    int arr[n];
+    
+    // Input array elements
+    printf("Enter %d elements: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Brute force nested loop to find Previous Greater Element
+    for (int i = 0; i < n; i++) {
+        int prevGreater = -1;
+        
+        // Check elements to the left from right-to-left (nearest first)
+        for (int j = i - 1; j >= 0; j--) {
+            if (arr[j] > arr[i]) {
+                prevGreater = arr[j];
+                break; // Stop at the nearest greater element
+            }
+        }
+        
+        // Print in comma-separated fashion
+        if (i < n - 1) {
+            printf("%d, ", prevGreater);
+        } else {
+            printf("%d", prevGreater);
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
