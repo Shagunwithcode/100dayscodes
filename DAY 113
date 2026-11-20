@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Comparator for qsort in ascending order
+int compareAsc(const void *a, const void *b) {
+    int valA = *(const int *)a;
+    int valB = *(const int *)b;
+    if (valA < valB) return -1;
+    if (valA > valB) return 1;
+    return 0;
+}
+
+int main() {
+    int n, k;
+
+    printf("Enter number of elements: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        return 0;
+    }
+
+    int arr[n];
+    printf("Enter %d elements: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter k: ");
+    if (scanf("%d", &k) != 1 || k <= 0 || k > n) {
+        return 0;
+    }
+
+    // Sort array in ascending order
+    qsort(arr, n, sizeof(int), compareAsc);
+
+    // 1-based kth smallest element is at index k - 1
+    printf("%d\n", arr[k - 1]);
+
+    return 0;
+}
