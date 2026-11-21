@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int findMissingNumber(const int nums[], int n) {
+    long long expected_sum = (long long)n * (n + 1) / 2;
+    long long actual_sum = 0;
+
+    for (int i = 0; i < n; i++) {
+        actual_sum += nums[i];
+    }
+
+    return (int)(expected_sum - actual_sum);
+}
+
+int main() {
+    int n;
+
+    if (scanf("%d", &n) != 1 || n < 0) {
+        return 0;
+    }
+
+    int nums[n > 0 ? n : 1];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &nums[i]);
+    }
+
+    printf("%d\n", findMissingNumber(nums, n));
+
+    return 0;
+}
