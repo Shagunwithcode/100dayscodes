@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int maxSubarraySum(int arr[], int n) {
+    int current_max = arr[0];
+    int global_max = arr[0];
+
+    for (int i = 1; i < n; i++) {
+        // Choose between starting a new subarray at arr[i] or extending the existing one
+        if (arr[i] > current_max + arr[i]) {
+            current_max = arr[i];
+        } else {
+            current_max = current_max + arr[i];
+        }
+
+        // Update overall maximum if current subarray sum is greater
+        if (current_max > global_max) {
+            global_max = current_max;
+        }
+    }
+
+    return global_max;
+}
+
+int main() {
+    int n;
+    
+    // Input size of the array
+    scanf("%d", &n);
+    
+    if (n <= 0) {
+        return 0;
+    }
+
+    int arr[n];
+    
+    // Input array elements
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Print the maximum contiguous subarray sum
+    printf("%d\n", maxSubarraySum(arr, n));
+
+    return 0;
+}
