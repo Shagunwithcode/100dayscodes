@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>
+
+int lengthOfLongestSubstring(const char *s) {
+    int last_seen[256];
+    for (int i = 0; i < 256; i++) {
+        last_seen[i] = -1;
+    }
+
+    int left = 0;
+    int max_len = 0;
+    int len = (int)strlen(s);
+
+    for (int right = 0; right < len; right++) {
+        unsigned char ch = (unsigned char)s[right];
+
+        if (last_seen[ch] >= left) {
+            left = last_seen[ch] + 1;
+        }
+
+        last_seen[ch] = right;
+
+        int current_len = right - left + 1;
+        if (current_len > max_len) {
+            max_len = current_len;
+        }
+    }
+
+    return max_len;
+}
+
+int main() {
+    char s[10005];
+
+    if (fgets(s, sizeof(s), stdin) != NULL) {
+        size_t len = strlen(s);
+        if (len > 0 && s[len - 1] == '\n') {
+            s[len - 1] = '\0';
+        }
+        printf("%d\n", lengthOfLongestSubstring(s));
+    }
+
+    return 0;
+}
