@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+
+int isAnagram(const char *s, const char *t) {
+    int len_s = (int)strlen(s);
+    int len_t = (int)strlen(t);
+
+    if (len_s != len_t) {
+        return 0;
+    }
+
+    int freq[26] = {0};
+
+    for (int i = 0; i < len_s; i++) {
+        freq[s[i] - 'a']++;
+        freq[t[i] - 'a']--;
+    }
+
+    for (int i = 0; i < 26; i++) {
+        if (freq[i] != 0) {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+int main() {
+    char s[10005], t[10005];
+
+    if (scanf("%10004s %10004s", s, t) == 2) {
+        if (isAnagram(s, t)) {
+            printf("Anagram\n");
+        } else {
+            printf("Not Anagram\n");
+        }
+    }
+
+    return 0;
+}
