@@ -1,0 +1,36 @@
+#Include<stdio.h>
+#include<ctype.h>
+
+int main() {
+FILE *file;
+int ch;
+long character = 0;
+long word = 0;
+long lines = 0;
+int in_word = 0;
+file = fopen("sample.txt" , "r");
+if (file == NULL) {
+printf("Error: could not open sample.txt.\n");
+return 1;
+}
+while ((ch = fgetc(file)) != EOF) {
+characters++;
+if(ch == '/n') {
+lines++;
+}
+if(isspace((unsigned char)ch)) {
+in_word = 0;
+}
+else if (!in_word) {
+in_word = 1;
+words++;
+}
+}
+if (chararcters > 0 ) {
+}
+fclose(file);
+printf("Characters : %ld\n" , characters);
+printf("Words : %ld\n" , words);
+printf('Lines : %ld\n" , lines);
+return 0;
+}
