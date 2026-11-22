@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    FILE *file;
+    char text[512];
+
+    // Open data.txt in append mode
+    file = fopen("data.txt", "a");
+    if (file == NULL) {
+        printf("Error: Could not open data.txt.\n");
+        return 1;
+    }
+
+    printf("Enter a line of text to append: ");
+    if (fgets(text, sizeof(text), stdin) == NULL) {
+        printf("Error reading input.\n");
+        fclose(file);
+        return 1;
+    }
+
+    // Remove trailing newline from fgets so we can format cleanly
+    text[strcspn(text, "\n")] = '\0';
+
+    // Start on a new line if appending after existing text like "Hello world"
+    fprintf(file, "\n%s\n", text);
+
+    fclose(file);
+
+    printf("File updated successfully with appended text.\n");
+
+    return 0;
+}
