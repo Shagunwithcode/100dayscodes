@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main() {
+    char src_name[256], dest_name[256];
+    FILE *src_file, *dest_file;
+    int ch;
+
+    printf("Enter source filename: ");
+    if (scanf("%255s", src_name) != 1) {
+        printf("Error reading source filename.\n");
+        return 1;
+    }
+
+    printf("Enter destination filename: ");
+    if (scanf("%255s", dest_name) != 1) {
+        printf("Error reading destination filename.\n");
+        return 1;
+    }
+
+    // Open source file in read mode
+    src_file = fopen(src_name, "r");
+    if (src_file == NULL) {
+        printf("Error: Could not open source file '%s'.\n", src_name);
+        return 1;
+    }
+
+    // Open destination file in write mode
+    dest_file = fopen(dest_name, "w");
+    if (dest_file == NULL) {
+        printf("Error: Could not create destination file '%s'.\n", dest_name);
+        fclose(src_file);
+        return 1;
+    }
+
+    // Copy character by character until EOF
+    while ((ch = fgetc(src_file)) != EOF) {
+        if (fputc(ch, dest_file) == EOF) {
+            printf("Error: Failed while writing to '%s'.\n", dest_name);
+            fclose(src_file);
+            fclose(dest_file);
+            return 1;
+        }
+    }
+
+    fclose(src_file);
+    fclose(dest_file);
+
+    printf("File copied successfully to %s\n", dest_name);
+
+    return 0;
+}
