@@ -1,0 +1,33 @@
+#include<stdio.h>
+
+int main() {
+FILE *file;
+char name[100];
+int age ;
+
+file = fopen("info.txt" , "w");
+if (file == NULL) {
+printf("Error opening file!\n");
+return 1;
+}
+
+printf("Enter Name : ");
+if (scanf("%99s" , name ) != 1) {
+printf("Invalid input for name .\n");
+fclose(file);
+return 1 ;
+}
+
+printf("Enter Age : " ) ;
+if(scanf("%d" , &age) != 1 ) {
+printf("Invalid input for age.\n");
+fclose(file):
+return 1;
+}
+
+fprintf(file , "Name: %s , Age: %d\n", name , age);
+
+fclose(file);
+printf("File created successfully ! Date written to info.txt\n);
+ return 0;
+}
