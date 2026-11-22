@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int  main() {
+FILE *file;
+
+char buffer[256];
+
+file = fopen("info.txt", "r");
+if (file == NULL) {
+printf("Error : Could not open info.txt.Make sure the file exists.\n");
+return 1;
+}
+
+while(fget(buffer, sizeof(buffer), file) != NULL ) {
+printf("%s", buffer);
+}
+
+fclose(file);
+return 0;
+}
