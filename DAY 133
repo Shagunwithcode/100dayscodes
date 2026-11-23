@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    FILE *filePointer;
+    int ch;
+    int vowels = 0, consonants = 0;
+
+    // Open text.txt in read mode
+    filePointer = fopen("text.txt", "r");
+    if (filePointer == NULL) {
+        printf("Error: Could not open text.txt!\n");
+        return 1;
+    }
+
+    // Read character by character until EOF
+    while ((ch = fgetc(filePointer)) != EOF) {
+        if (isalpha((unsigned char)ch)) {
+            char lower = (char)tolower((unsigned char)ch);
+            if (lower == 'a' || lower == 'e' || lower == 'i' ||
+                lower == 'o' || lower == 'u') {
+                vowels++;
+            } else {
+                consonants++;
+            }
+        }
+    }
+
+    fclose(filePointer);
+
+    printf("Vowels: %d\n", vowels);
+    printf("Consonants: %d\n", consonants);
+
+    return 0;
+}
