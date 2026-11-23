@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    char filename[256];
+    FILE *filePointer;
+    char ch;
+
+    printf("Filename: ");
+    if (scanf("%255s", filename) != 1) {
+        printf("Error: Invalid filename input.\n");
+        return 1;
+    }
+
+    // Attempt to open the file in read mode
+    filePointer = fopen(filename, "r");
+
+    // Check if the file pointer is NULL
+    if (filePointer == NULL) {
+        printf("Error: File does not exist!\n");
+        return 1;
+    }
+
+    printf("File opened successfully.\n");
+
+    // Read and display the file content character by character
+    while ((ch = fgetc(filePointer)) != EOF) {
+        putchar(ch);
+    }
+
+    // Close the file to release system resources
+    fclose(filePointer);
+
+    return 0;
+}
