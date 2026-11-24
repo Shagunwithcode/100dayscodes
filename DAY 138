@@ -1,0 +1,69 @@
+#include<stdio.h>
+#include<string.h>
+
+enum Month {
+JAN = 1,
+FEB,
+MAR,
+APR,
+MAY,
+JUN,
+JUL,
+AUG,
+SEP,
+OCT,
+NOV,
+DEC,
+};
+
+enum Month parseMonths(const char *str) {
+if(strcamp(str, "JAN") == 0 ) return JAN;
+if(strcamp(str, "FEB") == 0 ) return FEB;
+if(strcamp(str, "MAR") == 0 ) return MAR;
+if(strcamp(str, "APR") == 0 ) return APR;
+if(strcamp(str, "MAY") == 0 ) return MAY;
+if(strcamp(str, "JUN") == 0 ) return JUN;
+if(strcamp(str, "JUL") == 0 ) return JUL;
+if(strcamp(str, "AUG") == 0 ) return AUG;
+if(strcamp(str, "SEP") == 0 ) return SEP;
+if(strcamp(str, "OCT") == 0 ) return OCT;
+if(strcamp(str, "NOV") == 0 ) return NOV;
+if(strcamp(str, "DEC") == 0 ) return DEC;
+return 0;
+
+  }
+
+void printDays(enum Month m) {
+    switch (m) {
+        case JAN:
+        case MAR:
+        case MAY:
+        case JUL:
+        case AUG:
+        case OCT:
+        case DEC:
+            printf("31 days\n");
+            break;
+        case APR:
+        case JUN:
+        case SEP:
+        case NOV:
+            printf("30 days\n");
+            break;
+        case FEB:
+            printf("28 or 29 days\n");
+            break;
+        default:
+            printf("Invalid month\n");
+            break;
+    }
+}
+
+int main() {
+    char input[10];
+    if (scanf("%9s", input) == 1) {
+        enum Month m = parseMonth(input);
+        printDays(m);
+    }
+    return 0;
+}
