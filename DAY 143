@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+
+enum Role {
+    ADMIN,
+    USER,
+    GUEST,
+    INVALID_ROLE
+};
+
+enum Role parseRole(const char *str) {
+    if (strcmp(str, "ADMIN") == 0) return ADMIN;
+    if (strcmp(str, "USER") == 0) return USER;
+    if (strcmp(str, "GUEST") == 0) return GUEST;
+    return INVALID_ROLE;
+}
+
+void displayRoleMessage(enum Role role) {
+    switch (role) {
+        case ADMIN:
+            printf("Welcome Admin! Full access granted.\n");
+            break;
+        case USER:
+            printf("Welcome User!\n");
+            break;
+        case GUEST:
+            printf("Welcome Guest!\n");
+            break;
+        default:
+            printf("Invalid role!\n");
+            break;
+    }
+}
+
+int main() {
+    char input[20];
+    if (scanf("%19s", input) == 1) {
+        enum Role role = parseRole(input);
+        displayRoleMessage(role);
+    }
+    return 0;
+}
