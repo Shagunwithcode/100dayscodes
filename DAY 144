@@ -1,0 +1,24 @@
+Q138: Print all enum names and integer values using a loop.
+
+#include <stdio.h>
+
+enum TrafficLight {
+    RED,
+    YELLOW,
+    GREEN,
+    TRAFFIC_LIGHT_COUNT
+};
+
+int main() {
+    const char *names[] = {
+        "RED",
+        "YELLOW",
+        "GREEN"
+    };
+
+    for (int i = RED; i < TRAFFIC_LIGHT_COUNT; i++) {
+        printf("%s=%d\n", names[i], i);
+    }
+
+    return 0;
+}
