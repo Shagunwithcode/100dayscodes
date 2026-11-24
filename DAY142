@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+
+enum Operation {
+    ADD,
+    SUBTRACT,
+    MULTIPLY,
+    INVALID_OP
+};
+
+enum Operation parseOperation(const char *str) {
+    if (strcmp(str, "ADD") == 0) return ADD;
+    if (strcmp(str, "SUBTRACT") == 0) return SUBTRACT;
+    if (strcmp(str, "MULTIPLY") == 0) return MULTIPLY;
+    return INVALID_OP;
+}
+
+int main() {
+    char opStr[20];
+    int a, b;
+
+    if (scanf("%19s %d %d", opStr, &a, &b) == 3) {
+        enum Operation op = parseOperation(opStr);
+
+        switch (op) {
+            case ADD:
+                printf("%d\n", a + b);
+                break;
+            case SUBTRACT:
+                printf("%d\n", a - b);
+                break;
+            case MULTIPLY:
+                printf("%d\n", a * b);
+                break;
+            default:
+                printf("Invalid operation\n");
+                break;
+        }
+    }
+
+    return 0;
+}
