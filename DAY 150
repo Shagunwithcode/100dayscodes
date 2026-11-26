@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+typedef enum {
+    RED,
+    YELLOW,
+    GREEN,
+    COLOR_COUNT
+} Color;
+
+int main(void) {
+    const char *colorNames[COLOR_COUNT] = {
+        "RED",
+        "YELLOW",
+        "GREEN"
+    };
+
+    for (int i = RED; i < COLOR_COUNT; i++) {
+        printf("%s=%d\n", colorNames[i], i);
+    }
+
+    return 0;
+}
