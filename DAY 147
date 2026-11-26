@@ -1,0 +1,54 @@
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+
+typedef enum {
+    ADMIN,
+    USER,
+    GUEST,
+    UNKNOWN
+} Role;
+
+Role parseRole(const char *str) {
+    char upper[32];
+    size_t i = 0;
+
+    while (str[i] != '\0' && i < sizeof(upper) - 1) {
+        upper[i] = (char)toupper((unsigned char)str[i]);
+        i++;
+    }
+    upper[i] = '\0';
+
+    if (strcmp(upper, "ADMIN") == 0) return ADMIN;
+    if (strcmp(upper, "USER") == 0) return USER;
+    if (strcmp(upper, "GUEST") == 0) return GUEST;
+    return UNKNOWN;
+}
+
+int main(void) {
+    char roleInput[32];
+
+    if (scanf("%31s", roleInput) != 1) {
+        return 1;
+    }
+
+    Role role = parseRole(roleInput);
+
+    switch (role) {
+        case ADMIN:
+            printf("Welcome Admin!\n");
+            break;
+        case USER:
+            printf("Welcome User!\n");
+            break;
+        case GUEST:
+            printf("Welcome Guest!\n");
+            break;
+        case UNKNOWN:
+        default:
+            printf("Unknown role!\n");
+            break;
+    }
+
+    return 0;
+}
