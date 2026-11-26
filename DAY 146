@@ -1,0 +1,55 @@
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+
+typedef enum {
+    ADD,
+    SUBTRACT,
+    MULTIPLY,
+    INVALID
+} Operation;
+
+Operation parseOperation(const char *str) {
+    char upper[32];
+    size_t i = 0;
+
+    while (str[i] != '\0' && i < sizeof(upper) - 1) {
+        upper[i] = (char)toupper((unsigned char)str[i]);
+        i++;
+    }
+    upper[i] = '\0';
+
+    if (strcmp(upper, "ADD") == 0) return ADD;
+    if (strcmp(upper, "SUBTRACT") == 0) return SUBTRACT;
+    if (strcmp(upper, "MULTIPLY") == 0) return MULTIPLY;
+    return INVALID;
+}
+
+int main(void) {
+    char choiceStr[32];
+    int a, b;
+
+    if (scanf("%31s %d %d", choiceStr, &a, &b) != 3) {
+        return 1;
+    }
+
+    Operation op = parseOperation(choiceStr);
+
+    switch (op) {
+        case ADD:
+            printf("%d\n", a + b);
+            break;
+        case SUBTRACT:
+            printf("%d\n", a - b);
+            break;
+        case MULTIPLY:
+            printf("%d\n", a * b);
+            break;
+        case INVALID:
+        default:
+            printf("Invalid operation\n");
+            break;
+    }
+
+    return 0;
+}
